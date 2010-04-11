@@ -24,7 +24,7 @@ setlocal commentstring=#%s
 " config testing map for 'uzbl-core'
 if executable('uzbl-core')
     com! -buffer UzblCoreTest !uzbl-core -c %
-    nmap <buffer> <Leader>uc :UzblCoreTest<CR>
+    nmap <buffer> <Leader>uu :UzblCoreTest<CR>
 endif
 
 " config testing map for 'uzbl-browser'
