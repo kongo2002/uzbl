@@ -1,7 +1,7 @@
 " Vim filetype file
 " Filename:     uzbl.vim
 " Maintainer:   Gregor Uhlenheuer
-" Last Change:  Sun 11 Apr 2010 08:43:23 PM CEST
+" Last Change:  Sun 11 Apr 2010 09:10:26 PM CEST
 "
 " Custom configuration:
 "
@@ -52,21 +52,23 @@ if executable('uzbl-browser')
 endif
 
 " Compare/Diff current config with the default config file
-function! s:CompareUzblConfig()
-    let def_config = g:uzbl_prefix . '/share/uzbl/examples/config/config'
+if !exists('*CompareUzblConfig')
+    function! CompareUzblConfig()
+        let def_config = g:uzbl_prefix . '/share/uzbl/examples/config/config'
 
-    if filereadable(def_config)
-        if exists('g:uzbl_resize_on_diff') && g:uzbl_resize_on_diff
-            set columns=160
+        if filereadable(def_config)
+            if exists('g:uzbl_resize_on_diff') && g:uzbl_resize_on_diff
+                set columns=160
+            endif
+            exe 'vert diffsplit ' . def_config
+            wincmd p
+        else
+            echohl WarningMsg
+            echom 'Could not find default uzbl config (set g:uzbl_prefix)'
+            echohl None
         endif
-        exe 'vert diffsplit ' . def_config
-        wincmd p
-    else
-        echohl WarningMsg
-        echom 'Could not find default uzbl config (set g:uzbl_prefix)'
-        echohl None
-    endif
-endfunction
+    endfunction
+endif
 
-com! -buffer UzblDiffConf call s:CompareUzblConfig()
+com! -buffer UzblDiffConf call CompareUzblConfig()
 nmap <buffer> <Leader>uc :UzblDiffConf<CR>
