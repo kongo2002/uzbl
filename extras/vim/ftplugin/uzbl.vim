@@ -1,9 +1,21 @@
 " Vim filetype file
 " Filename:     uzbl.vim
 " Maintainer:   Gregor Uhlenheuer
-" Last Change:  Sun 11 Apr 2010 08:37:44 PM CEST
-
-" Defined Mappings:
+" Last Change:  Sun 11 Apr 2010 08:43:23 PM CEST
+"
+" Custom configuration:
+"
+"   Set 'g:uzbl_prefix' to the path prefix uzbl is installed in. The
+"   default is set to '/usr/local'
+"
+"       let g:uzbl_prefix = '/usr/local'
+"
+"   Set 'g:uzbl_resize_on_diff' if you want the vim window to be
+"   resized on a diffsplit:
+"
+"       let g:uzbl_resize_on_diff = 1
+"
+" Defined mappings:
 "
 "   <Leader>uu      Test current config with uzbl-core
 "   <Leader>ub      Test current config with uzbl-browser
