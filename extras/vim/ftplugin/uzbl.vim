@@ -1,7 +1,13 @@
 " Vim filetype file
 " Filename:     uzbl.vim
 " Maintainer:   Gregor Uhlenheuer
-" Last Change:  Sun 11 Apr 2010 08:24:07 PM CEST
+" Last Change:  Sun 11 Apr 2010 08:28:25 PM CEST
+
+" Defined Mappings:
+"
+"   <Leader>uu      Test current config with uzbl-core
+"   <Leader>ub      Test current config with uzbl-browser
+"   <Leader>uc      Diff current config with default uzbl config
 
 if exists('b:did_ftplugin')
   finish
