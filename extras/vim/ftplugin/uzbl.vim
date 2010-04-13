@@ -1,7 +1,7 @@
 " Vim filetype file
 " Filename:     uzbl.vim
 " Maintainer:   Gregor Uhlenheuer
-" Last Change:  Sun 11 Apr 2010 09:10:26 PM CEST
+" Last Change:  Tue 13 Apr 2010 02:59:19 PM CEST
 "
 " Custom configuration:
 "
@@ -17,9 +17,9 @@
 "
 " Defined mappings:
 "
-"   <Leader>uu      Test current config with uzbl-core
+"   <Leader>uc      Test current config with uzbl-core
 "   <Leader>ub      Test current config with uzbl-browser
-"   <Leader>uc      Diff current config with default uzbl config
+"   <Leader>ud      Diff current config with default uzbl config
 
 if exists('b:did_ftplugin')
   finish
@@ -42,7 +42,7 @@ setlocal commentstring=#%s
 " config testing map for 'uzbl-core'
 if executable('uzbl-core')
     com! -buffer UzblCoreTest !uzbl-core -c %
-    nmap <buffer> <Leader>uu :UzblCoreTest<CR>
+    nmap <buffer> <Leader>uc :UzblCoreTest<CR>
 endif
 
 " config testing map for 'uzbl-browser'
@@ -71,4 +71,4 @@ if !exists('*CompareUzblConfig')
 endif
 
 com! -buffer UzblDiffConf call CompareUzblConfig()
-nmap <buffer> <Leader>uc :UzblDiffConf<CR>
+nmap <buffer> <Leader>ud :UzblDiffConf<CR>
